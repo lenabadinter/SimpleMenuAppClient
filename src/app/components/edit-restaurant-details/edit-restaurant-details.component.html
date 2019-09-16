@@ -1,0 +1,32 @@
+<h3>Edit Restaurant's Details</h3>
+
+<form (submit)="saveRestaurantDetails()">
+
+  <div *ngIf="restaurant && restaurant.name">
+    <div>Restaurant Name:</div>
+    <input type="text" [(ngModel)]="restaurant.name" name="restaurant-name" placeholder="Enter Restaurant Name">
+  </div>
+  <br>
+
+  <div *ngIf="restaurant && restaurant.menu">
+    <div>Restaurant Menu Name:</div>
+    <input type="text" [(ngModel)]="restaurant.menu.name" name="restaurant-menu-name"
+      placeholder="Enter Restaurant Menu Name">
+  </div>
+  <br>
+
+  <div>Dishes:</div>
+  <div *ngIf="restaurant && restaurant.menu && restaurant.menu.dishes">
+    <div *ngFor="let dishe of restaurant.menu.dishes">
+      <div>Restaurant Dishe Name:</div>
+      <input type="text" [(ngModel)]="dishe.name" name="dishe-name"
+        placeholder="Enter Dishe Name">
+        <div>Restaurant Dishe Price:</div>
+      <input type="text" [(ngModel)]="dishe.price" name="dishe-price"
+          placeholder="Enter Dishe Price"> USD
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+

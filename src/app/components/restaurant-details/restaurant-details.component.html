@@ -1,0 +1,18 @@
+<h3>Restaurant's Details</h3>
+<input *ngIf="isAdmin && id" type="button" value="Edit" [routerLink]="['/edit/', id]" [queryParams]="{ isAdmin: true }">
+<ul>
+  <li *ngIf="restaurant && restaurant.name">
+    Restaurant Name: {{restaurant.name}}
+  </li>
+  <br>
+  <li *ngIf="restaurant && restaurant.menu">
+    Menu Name: {{restaurant.menu.name}}
+  </li>
+  <div>Dishes:</div>
+
+  <ul *ngIf="restaurant && restaurant.menu && restaurant.menu.dishes">
+    <li *ngFor="let dishe of restaurant.menu.dishes">
+      {{dishe.name}} = {{dishe.price.toFixed(2)}} USD
+    </li>
+  </ul>
+</ul>
